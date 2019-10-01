@@ -188,7 +188,6 @@
     setValue(value) {
       const thisWidget = this;
       const newValue = parseInt(value);
-      console.log('newValue != thisWidget.value', newValue != thisWidget.value);
       if (newValue != thisWidget.value && newValue >= settings.amountWidget.defaultMin && newValue <= settings.amountWidget.defaultMax) {
         thisWidget.value = newValue;
         thisWidget.announce();
