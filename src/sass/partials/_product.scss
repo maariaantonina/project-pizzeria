@@ -125,3 +125,31 @@
   }
 
 }
+
+@media(max-width: 768px) {
+  .product {
+    &__wrapper {
+      flex-direction: column;
+      justify-content: left;
+    }
+    &__header {
+      font-size: 18px;
+    margin-bottom: ($base-size * 1.5);
+    }
+    &__icon {
+    right: (-$base-size * 2.5);
+
+    }
+    &__order {
+      width: inherit;
+      margin-bottom: 24px;
+    }
+    &__images {
+      order: -1;
+
+      img {
+        height: 60%;
+      }
+    }
+  }
+}
