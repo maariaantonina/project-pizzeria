@@ -4,7 +4,7 @@ dataSource.amounts = {
   dataMin: 3,
   dataMax: 6,
   dataDefault: 4,
-}
+};
 
 dataSource.products = {
   cake: {
