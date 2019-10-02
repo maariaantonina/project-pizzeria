@@ -158,7 +158,8 @@
       const thisWidget = this;
       thisWidget.getElements(element);
       thisWidget.initActions();
-      thisWidget.value = settings.amountWidget.defaultValue;
+      thisWidget.value = dataSource.amounts.dataDefault;
+      thisWidget.setRange();
       thisWidget.setValue(thisWidget.input.value);
 
       console.log('AmountWidget:', thisWidget);
@@ -185,10 +186,16 @@
         thisWidget.setValue(thisWidget.value + 1);
       });
     }
+    setRange() {
+      const thisWidget = this;
+      thisWidget.minValue = dataSource.amounts.dataMin;
+      thisWidget.maxValue = dataSource.amounts.dataMax;
+      console.log('minmax:', thisWidget.minValue, thisWidget.maxValue);
+    }
     setValue(value) {
       const thisWidget = this;
       const newValue = parseInt(value);
-      if (newValue != thisWidget.value && newValue >= settings.amountWidget.defaultMin && newValue <= settings.amountWidget.defaultMax) {
+      if (newValue != thisWidget.value && newValue >= thisWidget.minValue && newValue <= thisWidget.maxValue) {
         thisWidget.value = newValue;
         thisWidget.announce();
       }
