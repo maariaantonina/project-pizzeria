@@ -220,10 +220,11 @@
     setValue(value) {
       const thisWidget = this;
       const newValue = parseInt(value);
-      if (newValue != thisWidget.value && newValue >= thisWidget.minValue && newValue <= thisWidget.maxValue) {
+      if (newValue !== thisWidget.value && newValue >= thisWidget.minValue && newValue <= thisWidget.maxValue) {
         thisWidget.value = newValue;
         thisWidget.announce();
       }
+
       thisWidget.input.value = thisWidget.value;
     }
     announce() {
