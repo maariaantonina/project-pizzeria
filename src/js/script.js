@@ -359,7 +359,7 @@
     }
     initActions() {
       const thisCartProduct = this;
-      thisCartProduct.dom.edit.addEventListener('click', function () { });
+      //thisCartProduct.dom.edit.addEventListener('click', function () { });
       thisCartProduct.dom.remove.addEventListener('click', function () {
         thisCartProduct.remove();
       });
