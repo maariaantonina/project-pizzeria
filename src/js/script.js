@@ -71,6 +71,11 @@
     cart: {
       defaultDeliveryFee: 20,
     },
+    db: {
+      url: '//localhost:3131',
+      product: 'product',
+      order: 'order',
+    },
   };
 
   const templates = {
@@ -200,7 +205,7 @@
       const thisWidget = this;
       thisWidget.getElements(element);
       thisWidget.initActions();
-      thisWidget.value = dataSource.amounts.dataDefault;
+      thisWidget.value = settings.amountWidget.defaultValue;
       thisWidget.setRange();
       thisWidget.setValue(thisWidget.input.value);
 
@@ -230,8 +235,8 @@
     }
     setRange() {
       const thisWidget = this;
-      thisWidget.minValue = dataSource.amounts.dataMin;
-      thisWidget.maxValue = dataSource.amounts.dataMax;
+      thisWidget.minValue = settings.amountWidget.defaultMin;
+      thisWidget.maxValue = settings.amountWidget.defaultMax;
     }
     setValue(value) {
       const thisWidget = this;
@@ -359,7 +364,7 @@
     }
     initActions() {
       const thisCartProduct = this;
-      //thisCartProduct.dom.edit.addEventListener('click', function () { });
+      //gitthisCartProduct.dom.edit.addEventListener('click', function () { });
       thisCartProduct.dom.remove.addEventListener('click', function () {
         thisCartProduct.remove();
       });
@@ -370,12 +375,22 @@
     initMenu: function () {
       const thisApp = this;
       for (let productData in thisApp.data.products) {
-        new Product(productData, thisApp.data.products[productData]);
+        new Product(thisApp.data.products[productData].id, thisApp.data.products[productData]);
       }
     },
     initData: function () {
       const thisApp = this;
-      thisApp.data = dataSource;
+      thisApp.data = {};
+      const url = settings.db.url + '/' + settings.db.product;
+      fetch(url)
+        .then(rawResponse => rawResponse.json())
+        .then(parsedResponse => {
+          console.log('parsedResponse:', parsedResponse);
+          thisApp.data.products = parsedResponse;
+          thisApp.initMenu();
+        });
+
+      console.log('thisApp.data', JSON.stringify(thisApp.data));
     },
     initCart: function () {
       const thisApp = this;
@@ -390,7 +405,6 @@
       console.log('settings:', settings);
       console.log('templates:', templates);
       thisApp.initData();
-      thisApp.initMenu();
       thisApp.initCart();
     },
   };
