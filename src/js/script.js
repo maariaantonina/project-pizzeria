@@ -431,7 +431,7 @@
       thisApp.data = {};
       const url = settings.db.url + '/' + settings.db.product;
       fetch(url)
-        .then(handleError)
+        .then(utils.handleErrors)
         .then(rawResponse => rawResponse.json())
         .then(parsedResponse => {
           console.log('parsedResponse:', parsedResponse);

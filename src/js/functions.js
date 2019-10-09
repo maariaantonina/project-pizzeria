@@ -45,6 +45,13 @@ utils.convertDataSourceToDbJson = function () {
   console.log(JSON.stringify({ product: productJson, order: [] }, null, '  '));
 };
 
+utils.handleErrors = function (response) {
+  if (!response.ok) {
+    throw Error(response.statusText);
+  }
+  return response;
+};
+
 Handlebars.registerHelper('ifEquals', function (arg1, arg2, options) {
   return (arg1 == arg2) ? options.fn(this) : options.inverse(this);
 });
@@ -53,9 +60,4 @@ Handlebars.registerHelper('joinValues', function (input, options) {
   return Object.values(input).join(options.fn(this));
 });
 
-function handleErrors(response) {
-  if (!response.ok) {
-    throw Error(response.statusText);
-  }
-  return response;
-}
+
