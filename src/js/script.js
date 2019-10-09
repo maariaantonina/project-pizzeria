@@ -431,11 +431,15 @@
       thisApp.data = {};
       const url = settings.db.url + '/' + settings.db.product;
       fetch(url)
+        .then(handleError)
         .then(rawResponse => rawResponse.json())
         .then(parsedResponse => {
           console.log('parsedResponse:', parsedResponse);
           thisApp.data.products = parsedResponse;
           thisApp.initMenu();
+        })
+        .catch(error => {
+          console.log(error);
         });
 
       console.log('thisApp.data', JSON.stringify(thisApp.data));
