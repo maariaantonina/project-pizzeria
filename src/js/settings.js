@@ -1,4 +1,4 @@
-import 'handlebars.min.js';
+/*global Handlebars*/
 
 export const select = {
   templateOf: {
