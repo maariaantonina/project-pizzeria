@@ -95,7 +95,6 @@ class Booking {
     }
 
     const startHour = utils.hourToNumber(hour);
-    console.log(startHour);
 
     for (let hourBlock = startHour; hourBlock < startHour + duration; hourBlock += 0.5) {
       if (typeof thisBooking.booked[date][hourBlock] == 'undefined') {
@@ -175,13 +174,13 @@ class Booking {
     // select table
     for (let table of thisBooking.dom.tables) {
       const tableBooked = table.classList.contains(classNames.booking.tableBooked);
-      //const tableSelected = table.classList.contains(classNames.booking.tableSelected);
       if (!tableBooked) {
         table.addEventListener('click', function (event) {
           event.preventDefault();
           const clickedTable = this;
           clickedTable.classList.toggle(classNames.booking.tableSelected);
           thisBooking.tableSelected = table.getAttribute(settings.booking.tableIdAttribute);
+          thisBooking.tableSelected = parseInt(thisBooking.tableSelected);
         });
       }
     }
@@ -210,9 +209,12 @@ class Booking {
   sendReservation() {
     const thisBooking = this;
     const url = settings.db.url + '/' + settings.db.booking;
+    const date = thisBooking.datePicker.value;
+    const hour = thisBooking.hourPicker.value;
+    console.log('date hour', date, hour);
     const payload = {
-      date: thisBooking.date,
-      hour: thisBooking.hour,
+      date: date,
+      hour: hour,
       table: thisBooking.tableSelected,
       repeat: false,
       duration: thisBooking.hoursAmount.value,
