@@ -5,41 +5,82 @@
   padding: 0 46px;
 }
 
+//big-nav
 .big-nav {
   @include flex(row, flex-start, space-between);
   margin-bottom: 0px;
 
   a {
+    text-decoration: none;
+    color: $color-light;
+    text-align: center;
+
+
+
+    .big-nav-links {
+      width: 300px;
+      height: 120px;
+      background-size: cover;
+      border-radius: $radius;
+      margin-top: 70px;
+      background-image: url("../../images/main/pizza-2.jpg");
+      position: relative;
+
+      h2 {
+        position: absolute;
+        font-size: ($base-size*2);
+        font-family: $font-header;
+        text-transform: uppercase;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        transition: $transition;
+
+      }
+
+      p {
+        width: 100%;
+        position: absolute;
+        margin: 0;
+        top: 90%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        opacity: 0;
+        transition: $transition;
+        font-size: 16px;
+        font-weight: $font-light;
+      }
+
+      &:first-child {
+        background-image: url("../../images/main/pizza-1.jpg");
+      }
+
+      &:hover {
+        h2 {
+          top: 40%;
+        }
+
+        p {
+          opacity: 1;
+          top: 70%;
+        }
+      }
+    }
+
+  }
+ /* a {
     @extend .h2;
-    line-height: ($base-size*10);
-    width: ($base-size*25);
     color: $color-light;
     font-size: ($base-size*2);
     font-family: $font-header;
     text-decoration: none;
     text-align: center;
-    border-radius: $radius;
-    margin-top: 73px;
 
-    &[href="#order"]{
-      background-image: url("../../images/main/pizza-1.jpg");
-      background-size: cover;
-    }
-
-    &[href="#booking"]{
-      background-image: url("../../images/main/pizza-2.jpg");
-      background-size: cover;
-    }
-
-
-    &:hover {
-      background: lighten($color-dark, 25%);
-    }
-
-  }
+  }*/
 
 }
 
+//opening hours
 .openingHours {
   display: flex;
   flex-direction: column;
@@ -70,6 +111,7 @@
   }
 }
 
+//opinions
 .opinions {
   margin: 100px 0;
 
@@ -128,11 +170,21 @@
   }
 }
 
+//gallery
 .gallery {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   margin-top: 125px;
+  position: relative;
+
+  &:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0.25;
+  }
 
   .gallery-image {
     width: 195px;
