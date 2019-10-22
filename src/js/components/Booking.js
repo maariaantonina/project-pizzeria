@@ -10,6 +10,7 @@ class Booking {
     thisBooking.render(container);
     thisBooking.initWidgets();
     thisBooking.getData();
+    thisBooking.initActions();
 
     console.log('thisBooking', thisBooking);
   }
@@ -84,7 +85,6 @@ class Booking {
     }
 
     thisBooking.updateDOM();
-    thisBooking.initActions();
     console.log('thisBooking.booked', thisBooking.booked);
   }
   makeBooked(date, hour, duration, table) {
@@ -128,6 +128,7 @@ class Booking {
       if (!allAvailable && thisBooking.booked[thisBooking.date][thisBooking.hour].includes(tableId)
       ) {
         table.classList.add(classNames.booking.tableBooked);
+        table.classList.remove(classNames.booking.tableSelected);
       } else {
         table.classList.remove(classNames.booking.tableBooked);
       }
@@ -203,6 +204,7 @@ class Booking {
     thisBooking.dom.wrapper.addEventListener('submit', function (event) {
       event.preventDefault();
       thisBooking.sendReservation();
+      thisBooking.updateDOM();
     });
 
   }
@@ -211,7 +213,6 @@ class Booking {
     const url = settings.db.url + '/' + settings.db.booking;
     const date = thisBooking.datePicker.value;
     const hour = thisBooking.hourPicker.value;
-    console.log('date hour', date, hour);
     const payload = {
       date: date,
       hour: hour,
@@ -238,6 +239,8 @@ class Booking {
       .then(parsedResponse => {
         console.log('parsedResponse:', parsedResponse);
       });
+    thisBooking.makeBooked(payload.date, payload.hour, payload.duration, payload.table);
+    console.log(thisBooking.booked);
   }
 }
 
