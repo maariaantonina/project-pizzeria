@@ -1,6 +1,6 @@
 .wrapper {
   background: #fff;
-  margin-top: 45px;
+  margin-top: 42px;
   border-radius: $radius;
   padding: 0 46px;
 }
@@ -14,13 +14,23 @@
     line-height: ($base-size*10);
     width: ($base-size*25);
     color: $color-light;
-    font-size: ($base-size*1.8);
+    font-size: ($base-size*2);
     font-family: $font-header;
     text-decoration: none;
     text-align: center;
-    background: darken($color-dark, 5%);
     border-radius: $radius;
-    margin-top: 75px;
+    margin-top: 73px;
+
+    &[href="#order"]{
+      background-image: url("../../images/main/pizza-1.jpg");
+      background-size: cover;
+    }
+
+    &[href="#booking"]{
+      background-image: url("../../images/main/pizza-2.jpg");
+      background-size: cover;
+    }
+
 
     &:hover {
       background: lighten($color-dark, 75%);
@@ -42,15 +52,17 @@
   text-align: center;
 
   h1 {
-    font-size: ($base-size*1.8);
+    font-size: ($base-size*2);
     font-family: $font-header;
     color: $color-light;
     text-transform: uppercase;
     margin: 0;
+    margin-top: 2px;
   }
 
   p {
     margin: 0;
+    margin-top: 6px;
     text-transform: uppercase;
     font-size: ($base-size*1.2);
     color: $color-light;
@@ -62,17 +74,19 @@
   margin: 100px 0;
 
   .carousel-indicators {
+    bottom: -75px;
+
     .active {
       opacity: 0.5;
     }
 
     li {
-      width: $base-size;
-      height: $base-size;
+      width: 10px;
+      height: 10px;
       border-radius: 50%;
       background-color: $color-dark;
       opacity: 0.25;
-      bottom: -65px;
+      margin: 0 10px;
     }
   }
 
@@ -100,13 +114,15 @@
 .carousel-caption {
   h5 {
     text-transform: uppercase;
-    font-size: $base-size;
+    font-size: 15px;
   }
 
   p {
-    font-size: $base-size;
+    margin-top: 17px;
+    font-size: 15px;
 
     span {
+      margin-top: 30px;
       font-style: italic;
     }
   }
@@ -116,6 +132,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  margin-top: 125px;
 
   .gallery-image {
     width: 195px;
