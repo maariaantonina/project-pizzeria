@@ -11,8 +11,6 @@ class Booking {
     thisBooking.initWidgets();
     thisBooking.getData();
     thisBooking.initActions();
-
-    console.log('thisBooking', thisBooking);
   }
   getData() {
     const thisBooking = this;
@@ -240,7 +238,6 @@ class Booking {
         console.log('parsedResponse:', parsedResponse);
       });
     thisBooking.makeBooked(payload.date, payload.hour, payload.duration, payload.table);
-    console.log(thisBooking.booked);
   }
 }
 
