@@ -8,10 +8,12 @@ const app = {
   initPages: function () {
     const thisApp = this;
     thisApp.pages = document.querySelector(select.containerOf.pages).children;
+    console.log(thisApp.pages);
     thisApp.navLinks = document.querySelectorAll(select.nav.links);
 
     const idFromHash = window.location.hash.replace('#/', '');
     let pageMatchingHash = thisApp.pages[0].id;
+    console.log(pageMatchingHash, idFromHash);
     for (let page of thisApp.pages) {
       if (page.id == idFromHash) {
         pageMatchingHash = page.id;
