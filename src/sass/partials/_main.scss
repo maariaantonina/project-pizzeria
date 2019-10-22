@@ -58,3 +58,47 @@
   }
 }
 
+.opinions {
+  margin: 100px 0;
+  .carousel-indicators {
+    .active{
+      opacity: 0.5;
+    }
+    li {
+      width: $base-size;
+      height: $base-size;
+      border-radius: 50%;
+      background-color: $color-dark;
+      opacity: 0.25;
+      bottom: -65px;
+    }
+  }
+  .carousel-inner {
+    .carousel-item {
+      img {
+        height: ($base-size*16);
+        width: ($base-size*16);
+        object-fit: cover;
+      }
+      .carousel-caption {
+        color: $color-dark;
+        text-align: left;
+        margin-left: 40px;
+        right: auto;
+        bottom: auto;
+        left : auto;
+        h5 {
+          text-transform: uppercase;
+          font-size: $base-size;
+        }
+        p {
+          font-size: $base-size;
+          span {
+            font-style: italic;
+          }
+        }
+      }
+    }
+  }
+}
+

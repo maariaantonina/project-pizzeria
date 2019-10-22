@@ -9,9 +9,12 @@
   <link href="https://fonts.googleapis.com/css?family=Lato:400,300i,700%7COswald:300,500,700&amp;subset=latin-ext"
     rel="stylesheet">
   <link href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   <link rel="stylesheet" href="css/style.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
   <link rel="stylesheet" href="vendor/range-slider.min.css">
+
 </head>
 
 <body>
@@ -72,6 +75,43 @@
           <p><span>tue-sun, 12pm - 12am</span></p>
         </div>
         <div class="opinions">
+          <div class="bd-example">
+            <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+              <ol class="carousel-indicators">
+                <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
+                <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
+              </ol>
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <img src="images/main/pizza-1.jpg" class="rounded" alt="...">
+                  <div class="carousel-caption d-none d-md-inline-block">
+                    <h5>Amazing service!</h5>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet animi enim doloremque aperiam
+                      velit praesentium et!</p>
+                    <p><span>- Margaret Osbourne</span></p>
+                  </div>
+                </div>
+                <div class="carousel-item">
+                  <img src="images/main/pizza-2.jpg" class="rounded" alt="...">
+                  <div class="carousel-caption d-none d-md-inline-block">
+                    <h5>Delicious pizza!</h5>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus quaerat sit error
+                      reprehenderit repudiandae magnam temporibus aut perspiciatis aperiam nemo?</p>
+                    <p><span>- Margaret Osbourne</span></p>
+                  </div>
+                </div>
+                <div class="carousel-item">
+                  <img src="images/main/pizza-3.jpg" class="rounded" alt="...">
+                  <div class="carousel-caption d-none d-md-inline-block">
+                    <h5>Loved it!</h5>
+                    <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Vero harum laboriosam error.</p>
+                    <p><span>- Margaret Osbourne</span></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
         <div class="gallery"></div>
       </div>
@@ -149,6 +189,7 @@
       </form>
     </div>
   </script>
+
   <script id="template-cart-product" type="text/x-handlebars-template">
     <li>
       <div class="widget-amount"> <!-- widget-amount -->
@@ -256,6 +297,15 @@
       </article> <!-- .product -->
     </script>
 
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
   <script src="vendor/range-slider.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.0/handlebars.min.js"></script>
