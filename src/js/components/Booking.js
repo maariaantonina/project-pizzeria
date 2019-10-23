@@ -173,6 +173,7 @@ class Booking {
     // select table
     for (let table of thisBooking.dom.tables) {
       const tableBooked = table.classList.contains(classNames.booking.tableBooked);
+
       if (!tableBooked) {
         table.addEventListener('click', function (event) {
           event.preventDefault();
@@ -201,9 +202,44 @@ class Booking {
     //submit
     thisBooking.dom.wrapper.addEventListener('submit', function (event) {
       event.preventDefault();
-      thisBooking.sendReservation();
-      thisBooking.updateDOM();
+      const tableAvailable = thisBooking.ishoursAmoutCorrect(parseInt(thisBooking.hourPicker.value));
+      console.log('tableAvailable', tableAvailable);
+      if (tableAvailable) {
+        thisBooking.sendReservation();
+        thisBooking.updateDOM();
+      }
     });
+
+  }
+  ishoursAmoutCorrect(selectedHour) {
+    const thisBooking = this;
+    const timeToClosing = parseInt(settings.hours.close) - parseInt(selectedHour);
+    const duration = parseInt(thisBooking.hoursAmount.value);
+    console.log('timeToClosing', timeToClosing);
+    let availableTime = 1;
+
+
+    if (timeToClosing >= duration) {
+      for (let checkedHour = parseInt(selectedHour) + 1; checkedHour < parseInt(selectedHour) + duration; checkedHour += 1) {
+        if (thisBooking.booked[thisBooking.datePicker.value][checkedHour].indexOf(thisBooking.tableSelected) < 0) {
+          availableTime += 1;
+          console.log('checkedHour', checkedHour);
+          console.log('availableTime', availableTime);
+        } else {
+          break;
+        }
+      }
+      if (availableTime >= duration) {
+        return true;
+      } else {
+        window.alert('This table is available only for ' + availableTime + ' hours');
+        return false;
+      }
+    } else {
+      window.alert('Sorry, we are open only till midnight.');
+      return false;
+    }
+
 
   }
   sendReservation() {

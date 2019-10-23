@@ -15,8 +15,6 @@
     color: $color-light;
     text-align: center;
 
-
-
     .big-nav-links {
       width: 300px;
       height: 120px;
@@ -66,18 +64,7 @@
         }
       }
     }
-
   }
- /* a {
-    @extend .h2;
-    color: $color-light;
-    font-size: ($base-size*2);
-    font-family: $font-header;
-    text-decoration: none;
-    text-align: center;
-
-  }*/
-
 }
 
 //opening hours
@@ -220,6 +207,7 @@
         margin: 5px;
         font-size: 20px;
         color: $color-light;
+
         &:hover {
           color: $color-main;
         }
